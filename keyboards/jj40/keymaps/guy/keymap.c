@@ -79,16 +79,16 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
  * |------+------+------+------+------+-------------+------+------+------+------+------|
  * |      |      |      |      |      |      |      |      |      |      |      |      |
  * |------+------+------+------+------+------|------+------+------+------+------+------|
- * |      |      |      |      |      |      |      |      |      |      |      |      |
+ * |      |      |      |      |      |BLTOGG|BLBRTG|      |      |      |      |      |
  * |------+------+------+------+------+------+------+------+------+------+------+------|
- * |      |      |      |      |      |             |      |DSKLFT|      |      |DSKRGH|
+ * |      |      |      |      |      |             |      |DSKLFT|BL_DEC|BL_INC|DSKRGH|
  * `-----------------------------------------------------------------------------------'
  */
 [_HYPER] = LAYOUT_planck_mit( \
   RESET  , _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, KC_CAD , \
   _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, \
-  _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, \
-  _______, _______, _______, _______, _______, _______, _______, DSK_LEFT, _______, _______, DSK_RGHT \
+  _______, _______, _______, _______, _______, BL_TOGG, BL_BRTG, _______, _______, _______, _______, _______, \
+  _______, _______, _______, _______, _______, _______, _______, DSK_LEFT, BL_DEC, BL_INC, DSK_RGHT \
 )
 };
 
@@ -96,16 +96,16 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 uint32_t layer_state_set_user(uint32_t state) {
   switch (biton32(state)) {
     case _RAISE:
-        rgblight_setrgb (0xFF,  0x66, 0x00);
+        rgblight_setrgb (0xFF,  0x55, 0x00);
         break;
     case _LOWER:
-        rgblight_setrgb (0x00,  0xA3, 0xF2);
+        rgblight_setrgb (0x00,  0x00, 0xFF);
         break;
     case _HYPER:
         rgblight_setrgb (0xFF,  0x00, 0xF4);
         break;
     default: //  for any other layers, or the default layer
-        rgblight_setrgb (0xDD,  0xDD, 0xDD);
+        rgblight_setrgb (0x00,  0x000, 0x00);
         break;
     }
   return state;
