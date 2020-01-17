@@ -3,7 +3,7 @@
 
 #include "../../config.h"
 
-#define BACKLIGHT_BREATHING  // works, but BL_TOGG might not work
+#define BACKLIGHT_BREATHING
 #define BREATHING_PERIOD 10
 
 #endif
